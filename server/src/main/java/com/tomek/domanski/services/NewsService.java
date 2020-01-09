@@ -68,12 +68,23 @@ public class NewsService {
 //        NewsWrapper forObject = restTemplate.getForObject(url, NewsWrapper.class, params);
 
 
-        List<Article> articles = newsWrapper.getArticles().stream().map(elem -> new Article(elem.getTitle(), elem.getDescription(), new Date(), elem.getSource().getName(), elem.getUrl(), elem.getUrlToImage())).collect(Collectors.toList());
+        List<Article> articles = getArticles(newsWrapper);
 
         News news = new News(country,category,articles);
 
 //        return null;
         return news;
+    }
+
+    private List<Article> getArticles(NewsWrapper newsWrapper) {
+        return newsWrapper.getArticlesWrappers().stream()
+                                        .map(elem -> new Article(elem.getTitle(),
+                                                elem.getDescription(),
+                                                new Date(),
+                                                elem.getSource().getName(),
+                                                elem.getUrl(),
+                                                elem.getUrlToImage()))
+                                        .collect(Collectors.toList());
     }
 
     private URL getUrl(String country, String category) throws URISyntaxException, MalformedURLException {
