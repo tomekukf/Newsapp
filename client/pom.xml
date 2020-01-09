@@ -16,11 +16,6 @@
 
     <name>client</name>
 
-    <!--<properties>-->
-        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-        <!--<maven.compiler.source>1.7</maven.compiler.source>-->
-        <!--<maven.compiler.target>1.7</maven.compiler.target>-->
-    <!--</properties>-->
 
     <dependencies>
         <dependency>
@@ -59,7 +54,7 @@
                             </execution>
 
                             <execution>
-                                <id>ng build --configuration=dev</id>
+                                <id>ng build </id>
                                 <phase>prepare-package</phase>
                                 <goals>
                                     <goal>npm</goal>
@@ -72,9 +67,9 @@
                     </plugin>
                 </plugins>
             </build>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+            <!--<activation>-->
+                <!--<activeByDefault>true</activeByDefault>-->
+            <!--</activation>-->
         </profile>
     </profiles>
 </project>
