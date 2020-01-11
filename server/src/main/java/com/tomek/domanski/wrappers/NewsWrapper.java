@@ -14,5 +14,5 @@ public class NewsWrapper {
 
     private String status;
     private int  totalResults;
-    private List<ArticleWrapper> articlesWrappers;
+    private List<ArticleWrapper> articles;
 }

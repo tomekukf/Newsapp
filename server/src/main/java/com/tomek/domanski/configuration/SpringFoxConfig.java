@@ -23,8 +23,8 @@ public class SpringFoxConfig {
                 .build().apiInfo(apiEndPointsInfo());
     }
     private ApiInfo apiEndPointsInfo() {
-        return new ApiInfoBuilder().title("Spring Boot REST API")
-                .description("Employee Management REST API")
+        return new ApiInfoBuilder().title("NewsApp REST API")
+                .description("NewsApp REST API")
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
                 .version("1.0.0")

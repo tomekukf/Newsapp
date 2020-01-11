@@ -15,7 +15,7 @@ public class Article {
 
     private String title;
     private String description;
-    private Date date;
+    private String date;
     private String sourceName;
     private String articleUrl;
     private String imageUrl;
