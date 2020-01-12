@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {NewsContainer} from "./models/News";
+import {NewsService} from "./services/news.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'client';
+  title = 'Przegladarka newsów';
+  newsContiner: NewsContainer;
+
+
+  constructor(private newsService: NewsService) {
+  }
+
 }

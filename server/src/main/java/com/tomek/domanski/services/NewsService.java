@@ -44,11 +44,12 @@ public class NewsService {
 
     public News getListOfNews(String country, String category) throws Exception {
 
+        System.out.println(getUrl(country, category));
         NewsWrapper newsWrapper = restTemplate.getForObject(getUrl(country, category), NewsWrapper.class);
 
         if (newsWrapper != null) {
             return new News(country, category, getArticles(newsWrapper));
-        }else{
+        } else {
             throw new DataNotFoundException();
         }
 
@@ -79,6 +80,7 @@ public class NewsService {
         List<Article> articles = new ArrayList<>();
         for (ArticleWrapper elem : newsWrapper.getArticles()) {
             Article article = new Article(
+                    elem.getAuthor(),
                     elem.getTitle(),
                     elem.getDescription(),
                     getParsedDate(elem.getPublishedAt()),

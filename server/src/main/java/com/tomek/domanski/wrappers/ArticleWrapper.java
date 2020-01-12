@@ -2,14 +2,8 @@ package com.tomek.domanski.wrappers;
 
 import lombok.*;
 
-import java.util.Date;
 
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+@Data
 public class ArticleWrapper {
 
     private Source source;

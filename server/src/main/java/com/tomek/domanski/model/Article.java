@@ -1,18 +1,13 @@
 package com.tomek.domanski.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import java.util.Date;
+import lombok.Data;
 
-
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
 public class Article {
 
+    private String author;
     private String title;
     private String description;
     private String date;
