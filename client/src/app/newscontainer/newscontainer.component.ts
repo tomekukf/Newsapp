@@ -23,6 +23,8 @@ export class NewscontainerComponent implements OnInit {
       console.log(this.newsContiner)
       this.articles=data.articles;
     });
+
+    //Test -  Not_Found 404
     // this.newsService.getNewsNotFOund().subscribe(d=>{
     //   console.log(d)
     // });

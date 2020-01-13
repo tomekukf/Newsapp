@@ -7,16 +7,11 @@
     <groupId>com.tomek.domanski</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-
   <groupId>com.tomek.domanski</groupId>
   <artifactId>client</artifactId>
   <version>1.0-SNAPSHOT</version>
-
   <packaging>jar</packaging>
-
   <name>client</name>
-
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -25,7 +20,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <profiles>
     <profile>
       <id>dev</id>
@@ -43,7 +37,6 @@
               <npmDownloadRoot>http://registry.npmjs.org/npm/-/</npmDownloadRoot>
               <installDirectory>./</installDirectory>
             </configuration>
-
             <executions>
               <execution>
                 <id>install node and npm</id>
@@ -52,7 +45,6 @@
                   <goal>install-node-and-npm</goal>
                 </goals>
               </execution>
-
               <execution>
                 <id>npm install</id>
                 <phase>generate-resources</phase>
@@ -60,7 +52,6 @@
                   <goal>npm</goal>
                 </goals>
               </execution>
-
               <execution>
                 <id>ng build</id>
                 <phase>prepare-package</phase>
@@ -72,6 +63,68 @@
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>0.31.0</version>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>prod</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>0.0.28</version>
+            <configuration>
+              <workingDirectory>./</workingDirectory>
+              <nodeVersion>${node.version}</nodeVersion>
+              <npmVersion>${npm.version}</npmVersion>
+              <nodeDownloadRoot>http://nodejs.org/dist/</nodeDownloadRoot>
+              <npmDownloadRoot>http://registry.npmjs.org/npm/-/</npmDownloadRoot>
+              <installDirectory>./</installDirectory>
+            </configuration>
+            <executions>
+              <execution>
+                <id>install node and npm</id>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>install-node-and-npm</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>npm install</id>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>ng build --configuration=production</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <configuration>
+                  <arguments>run-script build</arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>0.31.0</version>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
           </plugin>
         </plugins>
       </build>

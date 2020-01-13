@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewscontainerComponent } from './newscontainer/newscontainer.component';
 import { NewsitemComponent } from './newsitem/newsitem.component';
+import {ModalModule} from "./_modal";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { NewsitemComponent } from './newsitem/newsitem.component';
     NewsitemComponent
   ],
   imports: [
+    FormsModule,
+    ModalModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

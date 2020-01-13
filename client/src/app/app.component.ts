@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {NewsContainer} from "./models/News";
-import {NewsService} from "./services/news.service";
+import {ModalService} from "./_modal";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'Przegladarka newsów';
   newsContiner: NewsContainer;
 
+  constructor(private modalService: ModalService) { }
 
-  constructor(private newsService: NewsService) {
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
-
 }

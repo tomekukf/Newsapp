@@ -4,6 +4,7 @@ import {Observable, throwError} from "rxjs";
 import {NewsContainer} from "../models/News";
 import {environment} from "../../environments/environment";
 import {catchError, tap} from "rxjs/operators";
+import {ModalService} from "../_modal";
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +13,11 @@ export class NewsService {
   baseApiUrl = environment.baseUrl;
 
   path = "news/pl/technology";
-  api2 = "http://localhost:8080/api";
+  testResponseWithError = "api";
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private modalService: ModalService) {
   }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
-    })
-  };
 
   getNews(): Observable<any> {
 console.log(this.baseApiUrl+this.path);
@@ -32,10 +28,8 @@ console.log(this.baseApiUrl+this.path);
     )
   }
 
-
   getNewsNotFOund() {
-
-    return this.http.get(this.api2)
+    return this.http.get(this.baseApiUrl+this.testResponseWithError)
       .pipe(catchError( (err ) => {
        return  this.handleError(err);
     }), tap(respData => {
@@ -45,13 +39,15 @@ console.log(this.baseApiUrl+this.path);
 
 
   private handleError(errorRes: HttpErrorResponse) {
-    console.log(errorRes)
+    this.openModal('custom-error-modal');
     return throwError('Nie znaleziono danych')
   }
 
   private handleData(respData: Object) {
+  }
 
-
+  openModal(id: string) {
+    this.modalService.open(id);
   }
 }
 
