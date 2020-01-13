@@ -12,8 +12,8 @@
     <name>Newsapp</name>
 
     <modules>
-        <module>server</module>
         <module>client</module>
+        <module>server</module>
     </modules>
 
     <properties>
@@ -39,11 +39,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-
-
-
-
-
 
 </project>

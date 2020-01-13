@@ -9,13 +9,11 @@
     </parent>
 
     <groupId>com.tomek.domanski</groupId>
-    <artifactId>server</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>App</artifactId>
 
     <packaging>jar</packaging>
 
     <name>server</name>
-
 
     <dependencies>
         <dependency>
@@ -56,6 +54,8 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
+
+
         <!--<dependency>-->
             <!--<groupId>org.springframework</groupId>-->
             <!--<artifactId>spring-web</artifactId>-->
@@ -67,6 +67,30 @@
             <!--<version>2.2.2.RELEASE</version>-->
         <!--</dependency>-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.tomek.domanski.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
