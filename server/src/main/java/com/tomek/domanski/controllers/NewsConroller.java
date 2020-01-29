@@ -1,5 +1,6 @@
 package com.tomek.domanski.controllers;
 
+import com.tomek.domanski.interfaces.INewsService;
 import com.tomek.domanski.model.News;
 import com.tomek.domanski.services.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class NewsConroller {
 
+    private final NewsService newsService;
+
     @Autowired
-    private NewsService newsService;
+    public NewsConroller(NewsService newsService) {
+        this.newsService = newsService;
+    }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/news/{country}/{category}")

@@ -23,6 +23,7 @@ export class ModalComponent implements OnInit, OnDestroy {
             return;
         }
 
+
         // move element to bottom of page (just before </body>) so it can be displayed above everything else
         document.body.appendChild(this.element);
 

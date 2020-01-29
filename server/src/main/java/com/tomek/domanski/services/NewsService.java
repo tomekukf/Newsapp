@@ -2,6 +2,7 @@ package com.tomek.domanski.services;
 
 
 import com.tomek.domanski.exceptions.DataNotFoundException;
+import com.tomek.domanski.interfaces.INewsService;
 import com.tomek.domanski.model.Article;
 import com.tomek.domanski.model.News;
 import com.tomek.domanski.wrappers.ArticleWrapper;
@@ -27,7 +28,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class NewsService {
+public class NewsService implements INewsService {
 
 
     private static final String URL = "https://newsapi.org/v2/top-headlines";

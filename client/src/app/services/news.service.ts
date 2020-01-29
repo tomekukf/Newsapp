@@ -19,7 +19,7 @@ export class NewsService {
   }
 
 
-  getNews(): Observable<any> {
+  getNews(): Observable<HttpResponse<NewsContainer>> {
 console.log(this.baseApiUrl+this.path);
     return this.http.get<any>(this.baseApiUrl+this.path).pipe(
       catchError(err => {
