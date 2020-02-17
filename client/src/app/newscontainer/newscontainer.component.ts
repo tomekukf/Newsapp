@@ -23,6 +23,7 @@ export class NewscontainerComponent implements OnInit {
       // newsContainerHttpResponse.body
       // @ts-ignore
       console.log(data.articles )
+      // @ts-ignore
       this.articles=data.articles;
     });
 

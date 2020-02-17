@@ -5,6 +5,12 @@
 }
 
 
+.newsContainer {
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media  screen and (max-width : 300px ) {
   //[class*="col-"] {
   //  width: 100%;
