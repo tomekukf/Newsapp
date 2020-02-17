@@ -11,16 +11,18 @@ export class NewscontainerComponent implements OnInit {
 
   title = "Przegladarka newsów";
   newsContiner: NewsContainer;
-  articles;
+  articles: News[];
   country: string;
 
   constructor(private newsService: NewsService) {
   }
 
   ngOnInit() {
-    this.newsService.getNews().subscribe(data => {
-      this.newsContiner = data;
-      console.log(this.newsContiner)
+    this.newsService.getNews().subscribe((data) => {
+      // let newsContainerHttpResponse = data.clone();
+      // newsContainerHttpResponse.body
+      // @ts-ignore
+      console.log(data.articles )
       this.articles=data.articles;
     });
 
@@ -28,6 +30,54 @@ export class NewscontainerComponent implements OnInit {
     // this.newsService.getNewsNotFOund().subscribe(d=>{
     //   console.log(d)
     // });
+
+
+
+    // this.articles = [
+    //   {
+    //     author: "tomek",
+    //     title: "test",
+    //     description: "test",
+    //     date: "123",
+    //     sourceName: "123  ",
+    //     articleUrl: "123",
+    //     imageUrl: "123"
+    //   },
+    //   {
+    //     author: "tomek",
+    //     title: "test",
+    //     description: "test",
+    //     date: "123",
+    //     sourceName: "123  ",
+    //     articleUrl: "123",
+    //     imageUrl: "123"
+    //   },
+    //   {
+    //     author: "tomek",
+    //     title: "test",
+    //     description: "test",
+    //     date: "123",
+    //     sourceName: "123  ",
+    //     articleUrl: "123",
+    //     imageUrl: "123"
+    //   },
+    //   {
+    //     author: "tomek",
+    //     title: "test",
+    //     description: "test",
+    //     date: "123",
+    //     sourceName: "123  ",
+    //     articleUrl: "123",
+    //     imageUrl: "123"
+    //   }
+    // ]
   }
 
 }
+// author: string;
+// title: string;
+// description: string;
+// date: string;
+// sourceName: string;
+// articleUrl: string;
+// imageUrl: string;

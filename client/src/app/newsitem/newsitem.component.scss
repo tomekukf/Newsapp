@@ -1,9 +1,28 @@
 .card-img {
- padding-left: 10px;
+  padding-left: 10px;
   padding-top: 10px;
 }
-.atrictle-title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.atrictle-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+#id {
+  background-color: green;
+}
+
+.newsItem {
+  border: solid 3px black
+}
+
+
+//@media  (max-width: 1000px) {
+//  /* For mobile phones: */
+//  [class*="col-"] {
+//    //background-color: #ffabae;
+//    padding: 10px;
+//    //width: 50%;
+//  }
+//}
