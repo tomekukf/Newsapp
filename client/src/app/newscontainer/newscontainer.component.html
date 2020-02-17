@@ -1,6 +1,20 @@
 
-<div class="newsContainer">
-  <app-newsitem    id="id" class="col-" *ngFor="let newsitem of articles" [newsitem]="newsitem"> ></app-newsitem>
+<div class="test">
+  <div class="newsBox">
+    <div class="newsTitle">
+      <h1>
+        {{ title }}!
+      </h1>
+    </div>
+
+    <div class="newsContainer">
+      <app-newsitem    id="id" class="col-" *ngFor="let newsitem of articles" [newsitem]="newsitem"> ></app-newsitem>
+    </div>
+
+  </div>
+
 </div>
+
+
 
 
