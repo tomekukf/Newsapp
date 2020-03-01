@@ -1,2 +1,1 @@
-# Newsapp
-Consdata recruitment task 
+# Newsapp recruitment task 
